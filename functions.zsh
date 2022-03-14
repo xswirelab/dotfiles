@@ -103,3 +103,29 @@ weather() {
 archive () {
    zip -r "$1".zip -i "$1" ;
 }
+
+# symlink to dottools which is in path
+symlink() {
+	filename=$(basename $1)
+	sourceFile="$PWD/$1"
+	symlink=$DOTFILES/symlinks/$filename
+	if [ -f $symlink ] ; then
+		echo "Symbolic link already exists in $symlink"
+	else
+		ln -s $sourceFile $symlink
+		echo "Symbolic link created in $symlink"
+	fi
+	
+}
+
+# remove the symlink
+unsymlink() {
+	filename=$(basename $1)
+	symlink=$DOTFILES/symlinks/$filename
+	if [ -f $symlink ] ; then
+		unlink $symlink
+		echo "Symbolic link removed"
+	else
+		echo "No symbolic link found at $symlink"
+	fi
+}
