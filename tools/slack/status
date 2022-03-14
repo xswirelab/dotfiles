@@ -4,29 +4,20 @@ SLACK_API="https://slack.com/api"
 HEADER_CONTENT_TYPE="Content-Type: application/json; charset=utf-8"
 HEADER_AUTHORIZATION="Authorization: Bearer $SLACK_TOKEN"
 
-if [[ $1 ]]; then
-    if [ "$1" = "auto" ] || [ "$1" = "away" ]; then
-      _setPresence $1       
-    elif [ "$1" = "break" ]; then
-        _setStatus "404 $1" ":coffee:"
-        _setPresence "away"
-    elif [ "$1" = "gone" ]; then
-        _setStatus "410 $1" ":black_circle:"
-        _setPresence "away"
-    elif [ "$1" = "meeting" ]; then
-         _setStatus "404 $1" ":spiral_calendar_pad:"
-         _setPresence "auto"
-    elif [ "$1" = "work" ]; then
-         _setStatus "200 $1" ":face_with_cowboy_hat:"
-         _setPresence "auto"
-    else
-        echo "Unknown argument supplied"
-        _help
-    fi
-else
-    echo "No argument supplied"
-    _help
-fi
+_helpTable() {
+echo "[info]: set your slack status and/or presence"
+echo "---------------------------------------------"
+column -t -t -s ':' << EOM
+   info:usage:argument
+   -----:-----:-----
+   Set presence auto:status:auto
+   Set presence away:status:away
+   Set status break:status:break
+   Set status gone:status:gone
+   Set status meeting:status:meeting
+   Set status work:status:work
+EOM
+}
 
 _setStatus() {
    curl "$SLACK_API/users.profile.set" \
@@ -50,20 +41,28 @@ _setPresence() {
    }"
 }
 
-_help() {
-   echo "[usage]: status <argument> <param>"
-   echo "[info]: set your slack status and/or presence"
-   echo "[arguments]:"
-   echo "Set presence auto"
-   echo "- status auto" 
-   echo "Set presence away"
-   echo "- status away" 
-   echo "Set status break"
-   echo "- status break" 
-   echo "Set status gone"
-   echo "- status gone" 
-   echo "Set status meeting"
-   echo "- status meeting" 
-   echo "Set status work"
-   echo "- status work" 
-}
+if [[ $1 ]]; then
+    
+    if [ "$1" = "auto" ] || [ "$1" = "away" ]; then
+      _setPresence $1       
+    elif [ "$1" = "break" ]; then
+        _setStatus "404 $1" ":coffee:"
+        _setPresence "away"
+    elif [ "$1" = "gone" ]; then
+        _setStatus "410 $1" ":black_circle:"
+        _setPresence "away"
+    elif [ "$1" = "meeting" ]; then
+         _setStatus "404 $1" ":spiral_calendar_pad:"
+         _setPresence "auto"
+    elif [ "$1" = "work" ]; then
+         _setStatus "200 $1" ":face_with_cowboy_hat:"
+         _setPresence "auto"
+    else
+        echo "Unknown argument supplied"
+        _helpTable
+    fi
+
+else
+    echo "No argument supplied"
+   _helpTable
+fi
