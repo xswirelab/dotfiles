@@ -3,6 +3,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
 
 if [[ $1 ]]; then
+    
     if [ "$1" = "use" ]; then
         
         if [[ $2 ]]; then
@@ -11,46 +12,23 @@ if [[ $1 ]]; then
             nvm use --lts        
         fi
 
-    else
-        
-    fi
     elif [ "$1" = "version" ]; then
         echo $(nvm -v)
-    fi
-else
-    echo "Action: nvm <argument> <param>"
-    echo "available arguments:"
-    echo "- version" 
-    echo "- use <database>" 
-    echo "- create <database>" 
-    echo "- drop <database>"
-fi
-
-
-else
-    echo "Action: nvm <argument> <param>"
-    echo "available arguments:"
-    echo "- version" 
-    echo "- use <database>" 
-    echo "- create <database>" 
-    echo "- drop <database>"
-fi
-
-if [ "$1" = "use" ]; then
-    if [ $2 == "lts" ]; then
-        nvm use --lts
     else
-        nvm use $1
+        echo "Unknown argument supplied"
+        _help
     fi
-elif [ "$1" = "version" ]; then
-    echo $(nvm -v)
 else
-    echo "Action: nvm <argument> <param>"
-    echo "available arguments:"
-    echo "- version" 
-    echo "- use <database>" 
-    echo "- create <database>" 
-    echo "- drop <database>"
+    echo "No argument supplied"
+    _help
 fi
 
-
+_help() {
+    echo "[usage]: nvm <argument> <param>"
+	echo "[info]: several helpers for nvm"
+    echo "[arguments]:"
+    echo "Show current installed nvm version"
+    echo "- nvm version" 
+    echo "Switch to and use a specific nodejs version"
+    echo "- nvm use <version | optional | default: --lts>" 
+}
