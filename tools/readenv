@@ -1,0 +1,14 @@
+#!/bin/sh
+if [ -f .env ]; then
+	cat .env | sed 's/#.*//g' | xargs
+else
+	echo "no .env file found in current directory"
+	_help
+fi
+
+_help() {
+    echo "[usage]: readenv"
+	echo "[info]: reads the env variables from the .env in pwd"
+    echo "[arguments]:"
+    echo "- this command takes no arguments" 
+}

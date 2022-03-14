@@ -1,0 +1,5 @@
+#!/bin/sh
+PACKAGE_VERSION=$(cat ./package.json | grep '"node":' | egrep -o '[0-9]{1,2}' $1) 
+IN="$PACKAGE_VERSION"
+arrIN=(${IN//./ })
+echo ${arrIN[0]}      

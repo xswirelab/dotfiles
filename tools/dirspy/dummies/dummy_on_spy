@@ -1,0 +1,2 @@
+#!/bin/sh
+SPY_HOME="$HOME/.config/dirspy"

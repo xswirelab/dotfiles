@@ -1,0 +1,5 @@
+#!/bin/sh
+SPY_HOME="$HOME/.config/dirspy"
+# nvm info
+NVMVERSION=$($SPY_HOME/commands/nvm_version)
+echo "[NVM] $NVMVERSION"

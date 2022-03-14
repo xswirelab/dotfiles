@@ -1,0 +1,11 @@
+#!/bin/sh
+SPY_HOME="$HOME/.config/dirspy"
+mkdir $1
+
+scripts=( on_spy on_enter )
+
+for script in "${scripts[@]}"
+do
+    cp $DOTTOOLS/core/dummy_$script $1$script
+    chmod +x $1$script
+done
