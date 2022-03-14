@@ -25,6 +25,11 @@ mk_branch() {
 	git push --set-upstream origin $1 
 }
 
+# ignore a file
+gitignore() { 
+	echo $1 >> .gitignore
+}
+
 # make a new sh script 
 mk_sh() { 
 	echo "#!/bin/sh \n" > $1 
