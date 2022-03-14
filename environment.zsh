@@ -3,6 +3,7 @@ export DOTFILES=$HOME/.dotfiles
 export DOTTOOLS=$DOTFILES/tools
 
 # zsh path 
+export ZSH_CUSTOM=$DOTFILES
 export ZSH=$HOME/.oh-my-zsh
 
 # my editor
