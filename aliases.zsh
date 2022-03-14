@@ -24,3 +24,5 @@ alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cres
 alias gs="git status"
 # homebrew
 alias mkbrewfile="brew bundle dump --file=$DOTFILES/Brewfile"
+alias python="/usr/local/bin/python3"
+alias pip="/usr/local/bin/pip3"

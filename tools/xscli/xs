@@ -5,4 +5,16 @@ if (php_sapi_name() !== 'cli') {
     exit;
 }
 
-echo "Hello World\n";
+require __DIR__ . '/vendor/autoload.php';
+
+use App\XsCli;
+
+
+$app = new XsCli();
+$app->registerController('hello', new \Xs\Command\HelloController($app));
+
+$app->registerCommand('help', function (array $argv) use ($app) {
+    $app->getPrinter()->display("usage: {$app->base} hello [ your-name ]");
+});
+
+$app->runCommand($argv);

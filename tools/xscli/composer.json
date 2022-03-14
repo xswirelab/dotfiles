@@ -2,7 +2,7 @@
     "autoload": {
       "psr-4": {
         "Xs\\": "src/",
-        "App\\": "app/"
+        "App\\": "lib/"
       }
     }
   }
