@@ -1,6 +1,7 @@
 # zsh
 alias editzsh="$EDITOR $HOME/.zshrc"
 alias sourcezsh="source $HOME/.zshrc"
+alias .sz="source $HOME/.zshrc && echo '.zshrc sourced'"
 # directories
 alias dotfiles="cd $DOTFILES"
 # software
