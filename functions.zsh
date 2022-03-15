@@ -30,6 +30,28 @@ gitignore() {
 	echo $1 >> .gitignore
 }
 
+# make github  repo from current dir
+mk_repo_dir() {
+	if [ "$1" = "org" ]; then 
+		gh repo create $GITHUB_ORG/$2 --private --source=. --remote=upstream
+		cd $2		
+	else
+		gh repo create $GITHUB_USER/$1 --private --source=. --remote=upstream
+		cd $1
+	fi
+}
+
+# make github repo from scratch
+mk_repo() {
+	if [ "$1" = "org" ]; then
+		gh repo create $GITHUB_ORG/$2 --private --clone
+		cd $2		
+	else
+		gh repo create $GITHUB_USER/$1 --private --clone
+		cd $1
+	fi
+}
+
 # make a new sh script 
 mk_sh() { 
 	echo "#!/bin/sh \n" > $1 

@@ -1,0 +1,58 @@
+#!/bin/sh
+source $DOTFILES/secrets.zsh
+SLACK_API="https://slack.com/api"
+HEADER_CONTENT_TYPE="Content-Type: application/json; charset=utf-8"
+HEADER_AUTHORIZATION="Authorization: Bearer $SLACK_TOKEN"
+
+_setStatus() {
+   curl "$SLACK_API/users.profile.set" \
+      --header "$HEADER_AUTHORIZATION" \
+      --header "$HEADER_CONTENT_TYPE" \
+      --silent \
+      --data-raw "{
+      \"profile\": {
+         \"status_text\": \"$1\",
+         \"status_emoji\": \"$2\",
+         \"status_expiration\": 0
+      }
+   }"
+}
+
+_setPresence() {
+   curl "$SLACK_API/users.setPresence" \
+      --header "$HEADER_AUTHORIZATION" \
+      --header "$HEADER_CONTENT_TYPE" \
+      --silent \
+      --data-raw "{
+      \"presence\": \"$1\"
+   }"
+}
+
+menu(){
+  echo "
+   Slack status menu
+   1) Set presence auto
+   2) Set presence away
+   3) Set status break
+   4) Set status gone
+   5) Set status meeting
+   6) Set status work
+   7) Set status lunch
+   0) Exit
+   Choose an option: "
+  read a
+    case $a in
+      1) _setPresence "auto" >& /dev/null; menu ;;
+      2) _setPresence "away" >& /dev/null; menu ;;
+      3) _setStatus "404 break" ":coffee:" >& /dev/null; menu ;;
+      4) _setStatus "410 gone" ":black_circle:" >& /dev/null; menu ;;
+      5) _setStatus "404 meeting" ":spiral_calendar_pad:" >& /dev/null; menu ;;
+      6) _setStatus "200 work" ":face_with_cowboy_hat:" >& /dev/null; menu ;;
+      7) _setStatus "404 lunch" ":hamburger:" >& /dev/null; menu ;;
+      0) exit 0 ;;
+      *) exit 1 ;;
+    esac
+}
+
+# Call the menu function
+menu
