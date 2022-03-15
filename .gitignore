@@ -6,3 +6,6 @@ node_modules
 # editor micro buffer history
 config/micro/buffers/history
 cliphp
+.idea
+.vscode
+.DS_Store
