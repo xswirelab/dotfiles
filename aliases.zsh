@@ -14,6 +14,8 @@ alias cccccc="cd ../../../"
 alias la="ls -la"
 alias fu="rm -rf"
 alias www="cd ~/Sites"
+alias symlinks="cd $DOTFILES/symlinks"
+alias .f="cd $DOTFILES"
 # php craft / laravel / etc
 alias art="php artisan"
 alias craft="php craft"

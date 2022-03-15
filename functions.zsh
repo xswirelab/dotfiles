@@ -107,12 +107,13 @@ archive () {
 # symlink to dottools which is in path
 symlink() {
 	filename=$(basename $1)
-	sourceFile="$PWD/$1"
+	filedir=$(dirname $1)
+	sourceFile="$1"
 	symlink=$DOTFILES/symlinks/$filename
 	if [ -f $symlink ] ; then
-		echo "Symbolic link already exists in $symlink"
+		echo "Symbolic link already exists for $filename in $symlink"
 	else
-		ln -s $sourceFile $symlink
+		ln -s $1 $symlink
 		echo "Symbolic link created in $symlink"
 	fi
 	
@@ -121,7 +122,7 @@ symlink() {
 # remove the symlink
 unsymlink() {
 	filename=$(basename $1)
-	symlink=$DOTFILES/symlinks/$filename
+	symlink="$DOTFILES/symlinks/$filename"
 	if [ -f $symlink ] ; then
 		unlink $symlink
 		echo "Symbolic link removed"

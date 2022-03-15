@@ -1,3 +1,3 @@
 #!/bin/sh
-declare -A PACKAGE_VERSIONS=($(cat ./composer.json | grep '"php":' | egrep -o '([0-9].[0-9])' $1))
+declare -a PACKAGE_VERSIONS=($(cat ./composer.json | grep '"php":' | egrep -o '([0-9].[0-9])' $1))
 echo ${PACKAGE_VERSIONS[@]}

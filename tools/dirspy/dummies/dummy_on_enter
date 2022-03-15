@@ -1,5 +1,15 @@
 #!/bin/sh
-SPY_HOME="$HOME/.config/dirspy"
-# nvm info
-NVMVERSION=$($SPY_HOME/commands/nvm_version)
-echo "[NVM] $NVMVERSION"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
+
+nodeversion=$($DOTTOOLS/version_package_node)
+phpversion=$($DOTTOOLS/version_composer_php)
+currentphpversion=$(php -v | egrep -o '(PHP [0-9].[0-9].[0-9])')
+echo "---- info project"
+echo "Detected php version $phpversion"
+echo "Detected node version $nodeversion"
+echo "---- info system"
+echo "You are using $currentphpversion and NODE $(node -v)"
+echo "---- switching node version"
+nvm use --lts
+echo "---- please check if php needs changing"
