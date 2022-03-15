@@ -29,3 +29,5 @@ alias gs="git status"
 alias mkbrewfile="brew bundle dump --file=$DOTFILES/Brewfile"
 alias python="/usr/local/bin/python3"
 alias pip="/usr/local/bin/pip3"
+# npm 
+alias npmi="npm install --no-save"
