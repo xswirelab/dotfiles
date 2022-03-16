@@ -8,7 +8,7 @@ alias .ep="$EDITOR $DOTFILES/paths.zsh"
 alias .es="$EDITOR $DOTFILES/secrets.zsh"
 alias .et="$EDITOR $DOTFILES/theme.zsh"
 alias sourcezsh="source $HOME/.zshrc"
-alias .sz="source $DOTFILES/.zshrc && echo '.zshrc sourced'"
+alias .s="source $DOTFILES/.zshrc && echo '.zshrc sourced'"
 # software
 alias phpunit="./vendor/bin/phpunit"
 alias pest="./vendor/bin/pest"

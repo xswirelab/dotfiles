@@ -1,4 +1,11 @@
 # source dotfiles
+export DOTFILES=$HOME/.dotfiles
+
+if test -f "$DOTFILES/secrets.zsh"; then
+else 
+	touch secrets.zsh
+fi
+
 dotfiles=(
  paths.zsh
  environment.zsh

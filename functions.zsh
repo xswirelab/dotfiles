@@ -1,6 +1,11 @@
 # functions
 edit() { $EDITOR $1 }
 
+# wirelab
+ssh_wiredev() {
+	ssh $1@31.7.6.182
+}
+
 # commit everything
 commit() { 
 	git add --all && git commit -m "$1" 
