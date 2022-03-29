@@ -39,11 +39,14 @@ gitignore() {
 mk_repo_dir() {
 	if [ "$1" = "org" ]; then 
 		gh repo create $GITHUB_ORG/$2 --private --source=. --remote=upstream
-		cd $2		
+		git remote add origin git@github.com:$GITHUB_ORG/$2.git
 	else
-		gh repo create $GITHUB_USER/$1 --private --source=. --remote=upstream
-		cd $1
+		gh repo create $1 --private --source=. --remote=upstream
+		git remote add origin git@github.com:$GITHUB_USER/$1.git
 	fi
+	git add --all
+	git branch -M main
+	git push -u origin main
 }
 
 # make github repo from scratch

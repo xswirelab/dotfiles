@@ -21,7 +21,6 @@ for dotfile in ${dotfiles[@]}; do source $HOME/.dotfiles/$dotfile ; done
 export HISTFILE=$HOME/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
-export HIST_STAMPS="dd/mm/yyyy"
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS

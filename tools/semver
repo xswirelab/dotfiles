@@ -1,0 +1,9 @@
+#!/bin/sh
+
+parseSemver() {
+    PACKAGE_VERSION=$(cat ./package.json | grep node | head -1 | awk -F: '{ print $2 }' | sed 's/["~,]//g')
+    PACKV=$(echo $PACKAGE_VERSION | sed "s/.*-\(.*\)\.[a-zA-Z0-9]\{3\}$/\1/")
+    IN="$PACKV"
+    arrIN=(${IN//./ })
+    echo ${arrIN[1]}
+}

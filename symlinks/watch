@@ -1,7 +1,1 @@
-#!/bin/sh
-while (true)
-do
-     ls -la
-     sleep 3
-     clear
-done
+/Users/wirelab/.dotfiles/tools/watch

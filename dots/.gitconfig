@@ -1,0 +1,9 @@
+[pull]
+	rebase = false
+[user]
+	name = Xander Smalbil
+	email = xander@wirelab.nl
+[core]
+	excludesfile = /Users/wirelab/.gitignore
+[init]
+	defaultBranch = main

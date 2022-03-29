@@ -1,0 +1,7 @@
+#!/bin/bash
+watson=$(command -v watson)
+if command -v watson > /dev/null 2>&1; then
+  watson stop
+else
+  echo watson is not available
+fi

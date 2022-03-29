@@ -1,0 +1,9 @@
+#!/bin/bash
+dirname=`echo -n $(pwd) | shasum`
+echo -n ${dirname%-}
+
+# echo -n $(echo -n $(pwd) | shasum | cut -d' ' -f1)
+
+# correct: 
+# /Users/wirelab/scripts/utils
+# ea544c152f8f11920aae1c971bc1c4050ddb6ddc
