@@ -37,6 +37,8 @@ autoload -U +X bashcompinit && bashcompinit
 # terraform completion
 complete -o nospace -C /usr/local/bin/terraform terraform
 # some shit I have to google
-zstyle ':completion:*' menu select
+autoload compinit
+compinit
+zstyle ':completion:*' menu select=3
 # iterm integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -14,8 +14,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 # git
-export GITHUB_USER=xswirelab
-export GITHUB_ORG=wirelab
+export GITHUB_USER="xswirelab"
+export GITHUB_ORG="wirelab"
 # some software dirs
 export WATSON_DIR=$HOME/Dropbox/watson
 

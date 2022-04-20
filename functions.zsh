@@ -128,6 +128,11 @@ weather() {
 
    eval "curl http://wttr.in/${city}"
 }
+# toogle bluetooth
+toggle_bluetooth() {
+	blueutil -p 0
+	blueutil -p 1
+}
 
 # archive some stuff 
 archive () {
