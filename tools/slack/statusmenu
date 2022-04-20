@@ -2,6 +2,7 @@
 source $DOTFILES/secrets.zsh
 SLACK_API="https://slack.com/api"
 HEADER_CONTENT_TYPE="Content-Type: application/json; charset=utf-8"
+HEADER_CONTENT_TYPE_FORM="Content-Type: application/x-www-form-urlencoded; charset=utf-8"
 HEADER_AUTHORIZATION="Authorization: Bearer $SLACK_TOKEN"
 
 _setStatus() {
@@ -16,6 +17,13 @@ _setStatus() {
          \"status_expiration\": 0
       }
    }"
+}
+
+_setSnooze() {
+   curl "$SLACK_API/dnd.setSnooze?num_minutes="$1 \
+      --header "$HEADER_AUTHORIZATION" \
+      --header "$HEADER_CONTENT_TYPE_FORM" \
+      --silent
 }
 
 _setPresence() {
@@ -38,6 +46,8 @@ menu(){
    5) Set status meeting
    6) Set status work
    7) Set status lunch
+   8) Turn snooze on
+   9) Turn snooze off
    0) Exit
    Choose an option: "
   read a
@@ -49,6 +59,8 @@ menu(){
       5) _setStatus "404 meeting" ":spiral_calendar_pad:" >& /dev/null; menu ;;
       6) _setStatus "200 work" ":face_with_cowboy_hat:" >& /dev/null; menu ;;
       7) _setStatus "404 lunch" ":hamburger:" >& /dev/null; menu ;;
+      8) _setSnooze "720" >& /dev/null; menu ;;
+      9) _setSnooze "0" >& /dev/null; menu ;;
       0) exit 0 ;;
       *) exit 1 ;;
     esac
