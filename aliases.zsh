@@ -1,4 +1,5 @@
 # zsh
+alias .e="edit"
 alias editzsh="$EDITOR $DOTFILES/.zshrc"
 alias .ez="$EDITOR $DOTFILES/.zshrc"
 alias .ea="$EDITOR $DOTFILES/aliases.zsh"
@@ -15,7 +16,6 @@ alias history="history -i"
 alias phpunit="./vendor/bin/phpunit"
 alias pest="./vendor/bin/pest"
 alias tf="terraform"
-alias .e="edit"
 # movement
 alias cc="cd .."
 alias cccc="cd ../../"
@@ -27,6 +27,10 @@ alias symlinks="cd $DOTFILES/symlinks"
 alias dotfiles="cd $DOTFILES"
 alias .f="cd $DOTFILES"
 alias .w="cd $HOME/Sites"
+alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/"
+# plant uml
+alias plantuml="java -jar $HOME/bin/plantuml-1.2022.4.jar"
+alias uml="icloud && cd UML && plantuml"
 # php craft / laravel / etc
 alias art="php artisan"
 alias craft="php craft"

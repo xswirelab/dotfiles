@@ -6,6 +6,13 @@ ssh_wiredev() {
 	ssh $1@31.7.6.182
 }
 
+# Resource integrity hash for a file fe: https://code.jquery.com/jquery-2.1.4.min.js
+sri_hash() {
+	curl -s $1 | \
+   	openssl dgst -sha384 -binary | \
+    openssl base64 -A
+}
+
 # commit everything
 commit() { 
 	git add --all && git commit -m "$1" 
@@ -94,7 +101,7 @@ open_db() {
 }
 
 # database access
-dbhelper() {
+db() {
 	if [ "$1" = "refresh" ]; then
         mysql -uroot -e "drop database $2; create database $2"
     elif [ "$1" = "create" ]; then
