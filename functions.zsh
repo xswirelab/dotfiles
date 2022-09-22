@@ -6,6 +6,16 @@ ssh_wiredev() {
 	ssh $1@31.7.6.182
 }
 
+# browserstack
+browserstack() {
+	/Users/wirelab/Downloads/BrowserStackLocal --key $BROWSERSTACK_TOKEN
+}
+
+# craft cms
+craft_apply() {
+	php craft project-config/apply --force
+}
+
 # Resource integrity hash for a file fe: https://code.jquery.com/jquery-2.1.4.min.js
 sri_hash() {
 	curl -s $1 | \
@@ -103,13 +113,13 @@ open_db() {
 # database access
 db() {
 	if [ "$1" = "refresh" ]; then
-        mysql -uroot -e "drop database $2; create database $2"
+        mysql -u root -proot -e "drop database $2; create database $2"
     elif [ "$1" = "create" ]; then
-        mysql -uroot -e "create database $2"
+        mysql -u root -proot -e "create database $2"
     elif [ "$1" = "drop" ]; then
-        mysql -uroot -e "drop database $2"
+        mysql -u root -proot -e "drop database $2"
     elif [ "$1" = "list" ]; then
-        mysql -uroot -e "show databases" | perl -p -e's/\|| *//g'
+        mysql -u root -proot -e "show databases" | perl -p -e's/\|| *//g'
 	else
 		echo "Command: db <argument> <param>"
 		echo "available arguments:"

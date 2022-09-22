@@ -13,6 +13,8 @@ alias .s="source $DOTFILES/.zshrc && echo '.zshrc sourced'"
 alias .sz="source $DOTFILES/.zshrc && echo '.zshrc sourced'"
 alias history="history -i"
 # software
+alias rector="./vendor/bin/rector"
+alias pint="./vendor/bin/pint"
 alias phpunit="./vendor/bin/phpunit"
 alias pest="./vendor/bin/pest"
 alias tf="terraform"
@@ -35,13 +37,18 @@ alias uml="icloud && cd UML && plantuml"
 alias art="php artisan"
 alias craft="php craft"
 alias dump="composer dump-autoload"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 # git 
 alias switch="git checkout"
 alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
+alias gdev="git checkout development"
+alias gacc="git checkout acceptance"
 # homebrew
 alias mkbrewfile="brew bundle dump --file=$DOTFILES/Brewfile"
 alias python="/usr/local/bin/python3"
 alias pip="/usr/local/bin/pip3"
+# containers
+# alias docker="podman"
 # npm 
 alias npmi="npm install --no-save"
