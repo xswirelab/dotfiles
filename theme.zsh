@@ -1,7 +1,8 @@
 setopt prompt_subst
-source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
 SPY_FIRST_RUN=true
 SPY_HOME="$HOME/.config/dirspy"
+source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
+
 declare -A messages
 messages[setup_spy]="[SPY] Setting up..."
 messages[on_enter]="[SPY] Run on directory enter..."
