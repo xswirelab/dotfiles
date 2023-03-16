@@ -29,7 +29,8 @@ emulate -L zsh; load-nvmrc
 
 # Run LS command
 run-ls() {
-	la
+	l
 }
 
 add-zsh-hook chpwd run-ls
+

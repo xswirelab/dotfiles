@@ -1,0 +1,9 @@
+#!/bin/sh
+while (true)
+do
+	 title="Watson"
+     osascript -e "display notification \"$(watson status)\" with title \"$title\""
+	 echo $(watson status) 
+     sleep 900
+     clear
+done

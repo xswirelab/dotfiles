@@ -18,6 +18,13 @@ export GITHUB_USER="xswirelab"
 export GITHUB_ORG="wirelab"
 # some software dirs
 export WATSON_DIR=$HOME/Dropbox/watson
+# xdebug debug/develop/profile/trace/off/coverage
+# export XDEBUG_MODE=develop
+# GPG
+export GPG_TTY=$(tty)
+
+# docker / podman 
+# export DOCKER_HOST='unix:///Users/wirelab/.local/share/containers/podman/machine/podman-machine-default/podman.sock'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

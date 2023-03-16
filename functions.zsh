@@ -1,6 +1,16 @@
 # functions
 edit() { $EDITOR $1 }
 
+snotify() {
+    local notification_command="display notification \"$2\" with title \"$1\""
+    osascript -e "$notification_command"
+}
+alias sys-notify="snotify $1 $2"
+
+watson_status() {
+	sys-notify Watson "$(watson status)"
+}
+
 # wirelab
 ssh_wiredev() {
 	ssh $1@31.7.6.182
@@ -25,7 +35,7 @@ sri_hash() {
 
 # commit everything
 commit() { 
-	git add --all && git commit -m "$1" 
+	git add --all && git commit -s -S -m "$1" 
 	git pull origin $2 
 	git push origin $2 
 }
@@ -84,7 +94,7 @@ mk_sh() {
 }
 
 # make a dir and cd into it
-mk_cd() { 
+mkcd() { 
 	mkdir $1 
 	cd $1 
 }

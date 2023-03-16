@@ -2,6 +2,7 @@
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # composer bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
@@ -20,6 +21,10 @@ source $HOME/.cargo/env
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 export PATH=$GEM_HOME/ruby/2.6.0/bin:$PATH
+
+# go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # java openjdk
 #export PATH=/usr/local/opt/openjdk/bin:$PATH
