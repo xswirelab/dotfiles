@@ -5,5 +5,4 @@ do
      osascript -e "display notification \"$(watson status)\" with title \"$title\""
 	 echo $(watson status) 
      sleep 900
-     clear
 done

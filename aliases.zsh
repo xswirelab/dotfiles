@@ -54,6 +54,9 @@ alias php="valet php"
 alias craft="php craft"
 alias art="php artisan"
 alias dump="composer dump-autoload"
+# watson
+alias watsontoday="watson aggregate -f $(date '+%Y-%m-%d')"
+alias watsonyesterday="watson aggregate -f $(date -j -v-1d '+%Y-%m-%d')"
 # docker
 alias docker=podman
 # git 
